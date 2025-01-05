@@ -13,4 +13,6 @@ GitHub Profile: Chandana250404
 LinkedIN Profile: 
 
 
+  #Task 1: Task is to install essential tools such as  Oracle VirtualBox, Ubuntu on VMBox, RISC-V Toolchain and Microsoft Visual C++ Redistributables
   
+   #Install Ubuntu 

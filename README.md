@@ -8,7 +8,7 @@ Collge: Sahyadri College of Engineering and Management
 
 Email ID: chandana250404@gmail.com
 
-GitHub Profile:
+GitHub Profile: 
 
 LinkedIN Profile: 
 

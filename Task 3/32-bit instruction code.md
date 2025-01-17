@@ -150,7 +150,7 @@
 
 ### 12. Instruction: `j 101ac <atexit> encoded as jal x0,101ac`
 - **Opcode:** `1101111` (7 bits)
-- **Immediate:** `0x101ac`= 000000100000110101100(21 bits)
+- **Immediate:** `0x101ac 000000100000110101100`(21 bits)
 - **Destination Register (rd):** `x0`: `00000` (5 bits)
 
 **Breakdown:**

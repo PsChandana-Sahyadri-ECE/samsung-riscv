@@ -1,4 +1,4 @@
-# Samsung RISC-V Talent Development Program 
+# Samsung RISC-V  
 This program is based on the RISC-V  architecture and uses open-source tools to teach people about vlsi chip design and RISC-V. The instructor for this internship is Kunal Ghosh Sir.
 
 # Basic Details
@@ -14,26 +14,30 @@ LinkedIN Profile:
 
 
 
-### Task 1: RISC-V Toolchain Installation & Lab Setup  
 
-## ✅ Steps Completed  
+---
+
+## 🛠️ **Task 1: RISC-V Toolchain Setup**
+### ✅ **Steps Performed**
 1. **Created GitHub Repository**  
-   - Repository Name: `samsung-riscv`  
-
-2. **Watched Program Flow Videos**  
-   - Gained understanding of the RISC-V program structure.  
+   - Repository Name: `samsung-riscv`
+  
+2. **Watched the Tutorial Videos**  
+   - **C-based Lab Video** and **RISC-V-based Lab Video**  
 
 3. **Installed RISC-V Toolchain**  
-   - Installed using the VDI link provided in the task document.  
-   - Verified successful installation by running test commands.  
+   - Downloaded and installed the RISC-V toolchain using the provided VDI file.
 
-4. **Performed C-based & RISC-V-based Lab Experiments**  
-   - Followed the steps from the provided lab videos.  
-   - Ran sample programs and validated outputs.  
+4. **Performed Lab Experiments**  
+   - Ran basic RISC-V programs as demonstrated in the videos.
 
 5. **Captured Screenshots**  
-   - Screenshots taken during installation and execution.  
-   - Uploaded under the folder: `Task1_Snapshots/`  
+   - Captured terminal outputs and steps performed with date/time visible.  
+   - **Screenshots are available in `Task1/Screenshots/`**  
 
-## 📂 Repository Structure  
+---
 
+## 🚀 **How to Run the RISC-V Toolchain**
+To check if the toolchain is installed correctly, run:
+```bash
+riscv64-unknown-elf-gcc --version

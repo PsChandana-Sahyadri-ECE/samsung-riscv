@@ -125,7 +125,7 @@ This concludes Task 1, demonstrating C and RISC-V compilation workflows.
 
 ---
 <details>
-<summary> <b># Task 2: RISC-V SPIKE Simulation and Compiler Optimization </b>Task Overview</summary> 
+<summary> <b>Task 2: RISC-V SPIKE Simulation and Compiler Optimization </b>Task Overview</summary> 
 <br>
 
 This task involves compiling a **C program** using the **RISC-V GCC compiler**, simulating it in **SPIKE**, and comparing the performance of different optimization levels (`-O1` and `-Ofast`).  
@@ -133,18 +133,15 @@ This task involves compiling a **C program** using the **RISC-V GCC compiler**, 
 The goal is to understand how **compiler optimizations** affect the **execution and instruction set** in the SPIKE RISC-V simulator.  
 
 
----
-
 Steps to Complete the Task
 
 ### **1. Write a Simple C Program**  
 
 The following program calculates the addition of two numbers:  
 
-![Simple C Program](Task2/_c_program.png)
+![task2_c_Program](Task2/_c_program.png)
 
 
----
 
 ### **2. Compile Using RISC-V GCC**
 
@@ -223,8 +220,6 @@ spike -d pk swift.o
 4. The displayed instructions **directly correspond to the C code** of the main program, providing insights into the program's execution flow.
 
 
----
-
 ## **Explanation of Key Commands and Options**  
 
 | Command | Description |
@@ -265,7 +260,6 @@ The instruction format of a processor defines how machine language instructions 
 <img width="772" alt="instructions_types" src="https://github.com/user-attachments/assets/7ca6b3ea-bd59-4419-8410-1e14e40e911e" />
 
 
----
 
 ### 1. R-type Instruction
 R-type (Register-type) instructions operate on registers rather than memory locations. These are used for arithmetic and logical operations. Each instruction is 32 bits and divided into six fields:
@@ -322,7 +316,6 @@ R-type (Register-type) instructions operate on registers rather than memory loca
 ![r type](https://github.com/user-attachments/assets/33357c39-806e-4d2f-9158-cd204120dcd8)
 
 
----
 
 ### 2. I-type Instruction
 I-type (Immediate-type) instructions use a register and an immediate (constant) value. These are typically used for load and immediate operations.
@@ -350,7 +343,6 @@ I-type (Immediate-type) instructions use a register and an immediate (constant) 
 ![i type](https://github.com/user-attachments/assets/76a06842-0672-46d8-b50e-c538c6f63c99)
 
 
----
 
 ### 3. S-type Instruction
 S-type (Store-type) instructions store register values into memory locations.
@@ -380,7 +372,6 @@ S-type (Store-type) instructions store register values into memory locations.
 ![s type](https://github.com/user-attachments/assets/a6210bc8-77c1-424d-a6e0-ada39b5189da)
 
 
----
 
 ### 4. B-type Instruction
 B-type (Branch-type) instructions handle branching based on conditions.
@@ -417,7 +408,6 @@ B-type (Branch-type) instructions handle branching based on conditions.
 
 ![b type](https://github.com/user-attachments/assets/31c67705-07f0-4d1d-86e0-2c0d8e3e2e78)
 
----
 
 ### 5. U-type Instruction
 U-type (Upper Immediate) instructions load immediate data into the destination register.
@@ -433,8 +423,6 @@ U-type (Upper Immediate) instructions load immediate data into the destination r
 ![u type](https://github.com/user-attachments/assets/d5223eda-40fd-4418-8860-39f350330311)
 
 
----
-
 ### 6. J-type Instruction
 J-type (Jump-type) instructions implement jump operations, often used for loops.
 
@@ -449,7 +437,6 @@ J-type (Jump-type) instructions implement jump operations, often used for loops.
 ![j type](https://github.com/user-attachments/assets/f9841148-7b72-42c1-adea-3a9e2068d621)
 
 
----
 # RISC-V Instruction Breakdown
 
 ## 1. Instruction: `lui a0, 0x21`
@@ -612,6 +599,7 @@ J-type (Jump-type) instructions implement jump operations, often used for loops.
 This repository contains a list of 15 unique RISC-V instructions extracted from the assembly code along with their corresponding 32-bit instruction codes. These instructions cover different instruction formats, such as **U-type**, **I-type**, **J-type**, **B-type**, and **R-type**.
 
 </details>
+---
 
 ---
 <details>
@@ -687,13 +675,10 @@ $ ./iiitb_rv32i
 ![ADDI](Task4/addi.png)
 
 
----
-
 ### **Full `gtkwave` Instruction**  
 ![Full gtkwave instruction](Task4/full_gtkwave_instruction.png)  
 
 </details>
-
 ---
 
 ---

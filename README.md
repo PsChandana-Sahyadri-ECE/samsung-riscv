@@ -30,13 +30,15 @@ This section demonstrates how to compile a *C program* on a standard *GCC compil
 ### *Steps to Compile and Run a C Program*
 1. Open the terminal and navigate to the desired directory.
 2. Create and edit a .c file using the following command:
-   sh
-   leafpad sum1ton.c
 
-3. Compile and execute the program:
-   sh
-   gcc sum1ton.c
-   ./a.out
+        sh
+       leafpad sum1ton.c
+
+4. Compile and execute the program:
+
+        sh
+        gcc sum1ton.c
+       ./a.out
 
 
 Compilation and execution are now complete.
@@ -57,31 +59,36 @@ Steps to Compile Using RISC-V GCC Compiler
 
 
 2. Verify the .c file content using:
-   sh
-   cat sum1ton.c
+   
+         sh
+         cat sum1ton.c
 
 
-3. Compile the program with the -O1 optimization:
-   sh
-   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+4. Compile the program with the -O1 optimization:
+
+       sh
+       riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 
 
-4. Disassemble the object file to view its assembly code:
-   sh
-   riscv64-unknown-elf-objdump -d sum1ton.o
+6. Disassemble the object file to view its assembly code:
+
+        sh
+         riscv64-unknown-elf-objdump -d sum1ton.o
 
 
-5. Minimize the assembly output for easier reading:
-   sh
-   riscv64-unknown-elf-objdump -d sum1ton.o | less
+8. Minimize the assembly output for easier reading:
+
+         sh
+         riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 
-6. Extract the main function’s assembly code using:
-   sh
-   /main
+10. Extract the main function’s assembly code using:
+  
+         sh
+         /main
 
 
-7. Locate the main function in the assembly output.
+11. Locate the main function in the assembly output.
 
    ![4](Task1/objdump_O1_mode.png
 )
@@ -90,26 +97,30 @@ Steps to Compile Using RISC-V GCC Compiler
 Compiling with -Ofast Optimization
 
 1. Compile the program with aggressive optimization using -Ofast:
-   sh
-   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
-   
 
-2. Disassemble the object file:
-   sh
-   riscv64-unknown-elf-objdump -d sum1ton.o
-   
+          sh
+         riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+         
 
-3. Minimize the assembly output:
-   sh
-   riscv64-unknown-elf-objdump -d sum1ton.o | less
+3. Disassemble the object file:
 
+         sh
+         riscv64-unknown-elf-objdump -d sum1ton.o
+         
 
-4. Extract the main function:
-   sh
-   /main
+5. Minimize the assembly output:
+
+          sh
+         riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 
-5. Locate the main function in the assembly output.
+7. Extract the main function:
+ 
+         sh
+         /main
+
+
+8. Locate the main function in the assembly output.
 
  ![4](Task1/objdump_Ofast_mode.png
 )
@@ -125,7 +136,7 @@ This concludes Task 1, demonstrating C and RISC-V compilation workflows.
 
 ---
 <details>
-<summary> <b>Task 2: RISC-V SPIKE Simulation and Compiler Optimization </b>Task Overview</summary> 
+<summary> <b>Task 2:</b> RISC-V SPIKE Simulation and Compiler Optimization </b>Task Overview</summary> 
 <br>
 
 This task involves compiling a **C program** using the **RISC-V GCC compiler**, simulating it in **SPIKE**, and comparing the performance of different optimization levels (`-O1` and `-Ofast`).  
@@ -148,19 +159,22 @@ The following program calculates the addition of two numbers:
 #### **Compile with -O1 Optimization**  
 
 Use the following command to compile the program with the **-O1** optimization flag:  
-   sh
-   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o swift.o swift.c
+ 
+      sh
+      riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o swift.o swift.c
 
 
 #### **Disassemble Object Files to View Assembly Code**  
 
 Generate Dump for **-O1** Optimization:  
-   sh
-   riscv64-unknown-elf-objdump -d swift.o
+  
+      sh
+      riscv64-unknown-elf-objdump -d swift.o
 
 Minimize the assembly output using the following command:
-   sh
-   riscv64-unknown-elf-objdump -d swift.o | less
+  
+      sh
+      riscv64-unknown-elf-objdump -d swift.o | less
 
 ![O1_objdump](Task%202/task2_O1_objdump.png)
 
@@ -168,12 +182,14 @@ Minimize the assembly output using the following command:
 ### **3. Run SPIKE Simulation**
 
 Run a compiled **RISC-V program** on the SPIKE simulator in non-debug mode:  
-   sh
-   spike pk swift.o
+ 
+      sh
+      spike pk swift.o
 
 Invoke the debug mode of the SPIKE RISC-V simulator:
-   sh
-   spike -d pk swift.o
+ 
+      sh
+      spike -d pk swift.o
 
 ![O1_objdump](Task%202/O1_objdump_optimization.png)
 
@@ -181,31 +197,36 @@ Invoke the debug mode of the SPIKE RISC-V simulator:
 ### **4. Compile with -Ofast Optimization**
 
 Use the following command to compile the program with the **-Ofast** optimization flag:  
-   sh
-   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o swift.o swift.c
-   
+  
+      sh
+      riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o swift.o swift.c
+      
 
 #### **Disassemble Object Files to View Assembly Code**  
 
 Generate Dump for **-Ofast** Optimization:  
-   sh
-   riscv64-unknown-elf-objdump -d swift.o
+  
+      sh
+      riscv64-unknown-elf-objdump -d swift.o
 
 Minimize the assembly output using the following command:
-   sh
-   riscv64-unknown-elf-objdump -d swift.o | less
+   
+      sh
+      riscv64-unknown-elf-objdump -d swift.o | less
 
-![Ofast_objdump](Task2/Ofast_objdump.png)
+![Ofast_objdump](Task2/task2_Ofast_objdump.png)
 
 ### **5. Run SPIKE Simulation for -Ofast Optimization**
 
 Run the **-Ofast binary** in SPIKE:  
-   sh
-   spike pk swift.o
+  
+      sh
+      spike pk swift.o
 
 Invoke the debug mode of the SPIKE RISC-V simulator:
-   sh
-   spike -d pk swift.o
+  
+      sh
+      spike -d pk swift.o
 
 ![Ofast_objdump](Task%202/Ofast_objdump_optimization.png)
 
@@ -241,6 +262,7 @@ These tools together enable compiling, running, and debugging **RISC-V programs*
 ---
 <details>
 <summary><b>Task 3:</b> The goal is to analyze and categorize each of the provided instructions based on their type, whether it be R-type, I-type, or J-type, and then translate them into their respective 32-bit machine instruction codes. These instruction codes should be represented in the appropriate format, ensuring that each instruction is properly encoded according to the specific structure and opcode requirements of the given architecture. The result should provide a detailed mapping of the instructions to their corresponding binary code representations.</summary>
+<br>
 
 # Understanding RISC-V and Its Instruction Formats
 
@@ -653,51 +675,42 @@ $ ./iiitb_rv32i
 ## **Analyzing the Output Waveform of Various Instructions**
 
 ### **Instruction 1: `ADD R6, R2, R1`**  
-![ADD](Task4/add.png)
+![ADD](Task%204/add.png)
 
 ### **Instruction 2: `SUB R7, R1, R2`**  
-![SUB](Task4/sub.png)
+![SUB](Task%204/sub.png)
 
 ### **Instruction 3: `AND R8, R1, R3`**  
-![AND](Task4/and.png)
+![AND](Task%204/and.png)
 
 ### **Instruction 4: `OR R9, R2, R5`**  
-![OR](Task4/or.png)
+![OR](Task%204/or.png)
 
 ### **Instruction 5: `XOR R10, R1, R4`**  
-![XOR](Task4/xor.png)
+![XOR](Task%204/xor.png)
 
 ### **Instruction 6: `SLT R1, R2, R4`**  
-![SLT](Task4/slt.png)
+![SLT](Task%204/slt.png)
 
 ### **Instruction 7: `ADDI R12, R4, 5`**  
-![ADDI](Task4/addi.png)
+![ADDI](Task%204/addi.png)
 
 
 ### **Full `gtkwave` Instruction**  
-![Full gtkwave instruction](Task4/full_gtkwave_instruction.png)  
+![Full gtkwave instruction](Task%204/full_gtkwave_instruction.png)  
 
 </details>
 ---
 
 ---
 <details>
-<summary> <b>Task 5:</b> This task involves implementating a project using VSDsquadron Mini board
-   # LED Fading with PWM
+<summary> <b>Task 5:</b> This task involves implementating a project using VSDsquadron Mini board. LED Fading with PWM. This project demonstrates a **smooth LED fading effect** using **Pulse Width Modulation (PWM)** on a **VSDsquadron Mini Board**.</summary>
 
-## Overview
-This project demonstrates a **smooth LED fading effect** using **Pulse Width Modulation (PWM)** on a **CH32V003 microcontroller**. Four LEDs, connected to **GPIO pins PC3, PC4, PC5, and PC6**, gradually transition in brightness, creating a visually appealing **wave-like pattern**. The microcontroller precisely controls the brightness using PWM, ensuring a seamless and smooth transition.
-
-## Applications
-- LED lighting effects and animations
-- Visual indicators for embedded systems
-- Smooth transition effects in smart lighting solutions
-- Learning platform for PWM-based brightness control
 
 ## Components Required
 | Component               | Quantity | Description                                        |
 |-------------------------|----------|----------------------------------------------------|
-| CH32V003 Microcontroller | 1        | The core microcontroller used for LED control     |
+| VSDsquadron Mini Board  | 1        | The core microcontroller used for LED control     |
 | LEDs                    | 4        | Light-emitting diodes for visual output          |
 | Resistors (330Ω)        | 4        | Used to limit current through the LEDs           |
 | Connecting wires        | As needed| Used for establishing electrical connections      |
@@ -733,7 +746,7 @@ This project demonstrates a **smooth LED fading effect** using **Pulse Width Mod
 
 ---
 <details>
-<summary> <b>Task 6:</b>This project demonstrates a *smooth LED fading effect* using *Pulse Width Modulation (PWM)* on a *VSDSquadron Mini board. Four LEDs, connected to **GPIO pins PC3, PC4, PC5, and PC6, gradually transition in brightness, creating a visually appealing **wave-like pattern*. The microcontroller precisely controls the brightness using PWM, ensuring a seamless and smooth transition.
+<summary> <b>Task 6:</b>This project demonstrates a *smooth LED fading effect* using *Pulse Width Modulation (PWM)* on a *VSDSquadron Mini board. Four LEDs, connected to **GPIO pins PC3, PC4, PC5, and PC6, gradually transition in brightness, creating a visually appealing **wave-like pattern*. The microcontroller precisely controls the brightness using PWM, ensuring a seamless and smooth transition.</summary>
 
 ## Steps to Implement
 ### Hardware Implementation

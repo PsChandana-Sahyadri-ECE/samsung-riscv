@@ -239,7 +239,7 @@ These tools together enable compiling, running, and debugging **RISC-V programs*
 
 
 ---
-</details>
+<details>
 <summary><b>Task 3:</b> The goal is to analyze and categorize each of the provided instructions based on their type, whether it be R-type, I-type, or J-type, and then translate them into their respective 32-bit machine instruction codes. These instruction codes should be represented in the appropriate format, ensuring that each instruction is properly encoded according to the specific structure and opcode requirements of the given architecture. The result should provide a detailed mapping of the instructions to their corresponding binary code representations.</summary>
 
 # Understanding RISC-V and Its Instruction Formats
@@ -682,6 +682,7 @@ $ ./iiitb_rv32i
 
 ---
 <details>
+<summary> <b>Task 5:</b> This task involves implementating a project using VSDsquadron Mini board
    # LED Fading with PWM
 
 ## Overview
@@ -712,6 +713,10 @@ This project demonstrates a **smooth LED fading effect** using **Pulse Width Mod
 | LED4 | PC6     | Connected via a 330Ω resistor |
 | GND  | Common  | All LED grounds connected to microcontroller GND |
 
+
+## Circuit Diagram
+
+
 ## Working Mechanism
 1. **PWM Control:**
    - The microcontroller modulates the brightness of each LED using **Pulse Width Modulation (PWM)**.
@@ -726,4 +731,131 @@ This project demonstrates a **smooth LED fading effect** using **Pulse Width Mod
 ## Conclusion
 This project effectively demonstrates the **use of PWM for LED brightness control** in embedded systems. The smooth transitions between brightness levels showcase precise **timing and duty cycle adjustments**, creating an appealing **wave-like LED animation**. The implementation can be further extended for advanced LED control applications, making it a useful foundation for larger embedded projects.
 
+</details>
+---
+
+---
+<details>
+<summary> <b>Task 5:</b>This project demonstrates a *smooth LED fading effect* using *Pulse Width Modulation (PWM)* on a *VSDSquadron Mini board. Four LEDs, connected to **GPIO pins PC3, PC4, PC5, and PC6, gradually transition in brightness, creating a visually appealing **wave-like pattern*. The microcontroller precisely controls the brightness using PWM, ensuring a seamless and smooth transition.
+
+## Steps to Implement
+### Hardware Implementation
+1. *Microcontroller Setup:*
+   - The *VSDSquadron Mini board* is programmed to control LED brightness using PWM.
+   - GPIO pins *PC3, PC4, PC5, and PC6* are configured as output pins.
+2. *LED Circuit:*
+   - Each LED is connected in series with a *330Ω resistor* to limit the current.
+   - The circuit is powered using a *3.3V/5V power supply*.
+3. *Physical Assembly:*
+   - Components are connected on a *breadboard* for easy prototyping.
+   - Wires are used to establish electrical connections between the LEDs and microcontroller.
+
+### Software Implementation
+1. *PWM Control:*
+   - The microcontroller modulates the brightness of each LED using *Pulse Width Modulation (PWM)*.
+   - Each LED is assigned a varying duty cycle to create a fading effect.
+2. *Wave Effect:*
+   - The first LED starts at a dim level, with each subsequent LED increasing in brightness until the last one reaches full intensity.
+   - The pattern then reverses, smoothly dimming the LEDs back down, creating a *wave-like flow*.
+3. *Timing & Delay Adjustments:*
+   - Delays are carefully adjusted to ensure a smooth transition without abrupt changes.
+   - The fading effect repeats continuously, creating an eye-catching *dynamic lighting effect*.
+
+## Expected Output
+- LEDs will smoothly transition in brightness from dim to bright in a *wave-like* pattern.
+- The wave effect will continuously repeat in both *forward and reverse order*.
+- The smooth transition of brightness ensures a visually appealing effect without flickering.
+
+## Code Implementation
+- The project is implemented using *VS Code with PlatformIO*.
+- The code initializes *PWM on GPIO pins PC3, PC4, PC5, and PC6*.
+- A loop continuously updates PWM duty cycles to create a fading effect.
+- Delay values are set to control the timing of brightness changes.
+- The implementation ensures a seamless and efficient LED fading sequence.
+
+     sh
+     #include <ch32v00x.h>
+   #include <debug.h>
+   
+   #define LED1_GPIO_PORT GPIOC
+   #define LED2_GPIO_PORT GPIOC
+   #define LED3_GPIO_PORT GPIOC
+   #define LED4_GPIO_PORT GPIOC
+   
+   #define LED1_GPIO_PIN GPIO_Pin_3
+   #define LED2_GPIO_PIN GPIO_Pin_4
+   #define LED3_GPIO_PIN GPIO_Pin_5
+   #define LED4_GPIO_PIN GPIO_Pin_6
+   
+   #define BLINKY_CLOCK_ENABLE RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE)
+   
+   void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+   void HardFault_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+   void Delay_Init(void);
+   void Delay_Ms(uint32_t n);
+   
+   void Fade_LED(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+   {
+       for (int i = 0; i < 10; i++)
+       {
+           GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_SET);
+           Delay_Ms(i * 20);
+           GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_RESET);
+           Delay_Ms(200 - i * 20);
+       }
+       for (int i = 10; i > 0; i--)
+       {
+           GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_SET);
+           Delay_Ms(i * 20);
+           GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_RESET);
+           Delay_Ms(200 - i * 20);
+       }
+   }
+   
+   int main(void)
+   {
+       NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+       SystemCoreClockUpdate();
+       Delay_Init();
+   
+       GPIO_InitTypeDef GPIO_InitStructure = {0};
+       BLINKY_CLOCK_ENABLE;
+       GPIO_InitStructure.GPIO_Pin = LED1_GPIO_PIN | LED2_GPIO_PIN | LED3_GPIO_PIN | LED4_GPIO_PIN;
+       GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+       GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+       GPIO_Init(GPIOC, &GPIO_InitStructure);
+   
+       while (1)
+       {
+           // Forward fading sequence
+           Fade_LED(LED1_GPIO_PORT, LED1_GPIO_PIN);
+           Fade_LED(LED2_GPIO_PORT, LED2_GPIO_PIN);
+           Fade_LED(LED3_GPIO_PORT, LED3_GPIO_PIN);
+           Fade_LED(LED4_GPIO_PORT, LED4_GPIO_PIN);
+   
+           // Reverse fading sequence
+           Fade_LED(LED4_GPIO_PORT, LED4_GPIO_PIN);
+           Fade_LED(LED3_GPIO_PORT, LED3_GPIO_PIN);
+           Fade_LED(LED2_GPIO_PORT, LED2_GPIO_PIN);
+           Fade_LED(LED1_GPIO_PORT, LED1_GPIO_PIN);
+       }
+   }
+   
+   void NMI_Handler(void) {}
+   void HardFault_Handler(void)
+   {
+       while (1)
+       {
+       }
+   }
+   
+
+## Applications
+- LED lighting effects and animations.
+- Visual indicators for embedded systems.
+- Smooth transition effects in smart lighting solutions.
+- Learning platform for PWM-based brightness control.
+
+## Conclusion
+This project effectively demonstrates the *use of PWM for LED brightness control* in embedded systems. The smooth transitions between brightness levels showcase precise *timing and duty cycle adjustments, creating an appealing **wave-like LED animation*. The implementation can be further extended for advanced LED control applications, making it a useful foundation for larger embedded projects.
 </details>

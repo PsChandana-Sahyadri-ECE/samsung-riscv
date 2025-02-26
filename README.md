@@ -34,9 +34,9 @@ This section demonstrates how to compile a *C program* on a standard *GCC compil
    leafpad sum1ton.c
 
 3. Compile and execute the program:
-
-gcc sum1ton.c
-./a.out
+   sh
+   gcc sum1ton.c
+   ./a.out
 
 
 Compilation and execution are now complete.
@@ -57,28 +57,28 @@ Steps to Compile Using RISC-V GCC Compiler
 
 
 2. Verify the .c file content using:
-
-cat sum1ton.c
+   sh
+   cat sum1ton.c
 
 
 3. Compile the program with the -O1 optimization:
-
-riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+   sh
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 
 
 4. Disassemble the object file to view its assembly code:
-
-riscv64-unknown-elf-objdump -d sum1ton.o
+   sh
+   riscv64-unknown-elf-objdump -d sum1ton.o
 
 
 5. Minimize the assembly output for easier reading:
-
-riscv64-unknown-elf-objdump -d sum1ton.o | less
+   sh
+   riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 
 6. Extract the main function’s assembly code using:
-
-/main
+   sh
+   /main
 
 
 7. Locate the main function in the assembly output.
@@ -90,23 +90,23 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 Compiling with -Ofast Optimization
 
 1. Compile the program with aggressive optimization using -Ofast:
-
-riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
-
+   sh
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+   
 
 2. Disassemble the object file:
-
-riscv64-unknown-elf-objdump -d sum1ton.o
-
+   sh
+   riscv64-unknown-elf-objdump -d sum1ton.o
+   
 
 3. Minimize the assembly output:
-
-riscv64-unknown-elf-objdump -d sum1ton.o | less
+   sh
+   riscv64-unknown-elf-objdump -d sum1ton.o | less
 
 
 4. Extract the main function:
-
-/main
+   sh
+   /main
 
 
 5. Locate the main function in the assembly output.
@@ -139,7 +139,7 @@ Steps to Complete the Task
 
 The following program calculates the addition of two numbers:  
 
-![task2_c_Program](Task2/_c_program.png)
+![Task 2 image]("Task%202/task2_c_program.png")
 
 
 
@@ -148,66 +148,66 @@ The following program calculates the addition of two numbers:
 #### **Compile with -O1 Optimization**  
 
 Use the following command to compile the program with the **-O1** optimization flag:  
-sh
-riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o swift.o swift.c
+   sh
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o swift.o swift.c
 
 
 #### **Disassemble Object Files to View Assembly Code**  
 
 Generate Dump for **-O1** Optimization:  
-sh
-riscv64-unknown-elf-objdump -d swift.o
+   sh
+   riscv64-unknown-elf-objdump -d swift.o
 
 Minimize the assembly output using the following command:
+   sh
+   riscv64-unknown-elf-objdump -d swift.o | less
 
-riscv64-unknown-elf-objdump -d swift.o | less
-
-![O1_objdump](Task2/task2_O1_objdump.png)
+![O1_objdump](Task%202/task2_O1_objdump.png)
 
 
 ### **3. Run SPIKE Simulation**
 
 Run a compiled **RISC-V program** on the SPIKE simulator in non-debug mode:  
-sh
-spike pk swift.o
+   sh
+   spike pk swift.o
 
 Invoke the debug mode of the SPIKE RISC-V simulator:
+   sh
+   spike -d pk swift.o
 
-spike -d pk swift.o
-
-![O1_objdump](Task2/O1_objdump_optimization.png)
+![O1_objdump](Task%202/O1_objdump_optimization.png)
 
 
 ### **4. Compile with -Ofast Optimization**
 
 Use the following command to compile the program with the **-Ofast** optimization flag:  
-sh
-riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o swift.o swift.c
-
+   sh
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o swift.o swift.c
+   
 
 #### **Disassemble Object Files to View Assembly Code**  
 
 Generate Dump for **-Ofast** Optimization:  
-sh
-riscv64-unknown-elf-objdump -d swift.o
+   sh
+   riscv64-unknown-elf-objdump -d swift.o
 
 Minimize the assembly output using the following command:
-
-riscv64-unknown-elf-objdump -d swift.o | less
+   sh
+   riscv64-unknown-elf-objdump -d swift.o | less
 
 ![Ofast_objdump](Task2/Ofast_objdump.png)
 
 ### **5. Run SPIKE Simulation for -Ofast Optimization**
 
 Run the **-Ofast binary** in SPIKE:  
-sh
-spike pk swift.o
+   sh
+   spike pk swift.o
 
 Invoke the debug mode of the SPIKE RISC-V simulator:
+   sh
+   spike -d pk swift.o
 
-spike -d pk swift.o
-
-![Ofast_objdump](Task2/Ofast_objdump_optimization.png)
+![Ofast_objdump](Task%202/Ofast_objdump_optimization.png)
 
 ## **Observing Instructions in SPIKE (`spike -d pk swift.o`)**  
 
@@ -234,8 +234,7 @@ spike -d pk swift.o
 | `riscv64-unknown-elf-objdump` | Disassembles RISC-V binaries to examine assembly code. |
 
 These tools together enable compiling, running, and debugging **RISC-V programs** on a simulated environment.
-
-
+<details>
 ---
 
 
@@ -598,7 +597,7 @@ J-type (Jump-type) instructions implement jump operations, often used for loops.
 
 This repository contains a list of 15 unique RISC-V instructions extracted from the assembly code along with their corresponding 32-bit instruction codes. These instructions cover different instruction formats, such as **U-type**, **I-type**, **J-type**, **B-type**, and **R-type**.
 
-</details>
+<details>
 ---
 
 ---
@@ -628,8 +627,8 @@ This repository contains a list of 15 unique RISC-V instructions extracted from 
  $   sudo apt get update
  $   sudo apt get install iverilog gtkwave
  ```
- ![image](Task 4/installation_iverilog.png)
- ![image](Task 4/installation_gtkwave.png)
+ ![image](Task%204/installation_iverilog.png)
+ ![image](Task%204/installation_gtkwave.png)
 
 - **To clone the repository and download the netlist files for simulation , enter the following commands in your terminal.**
 
@@ -678,7 +677,7 @@ $ ./iiitb_rv32i
 ### **Full `gtkwave` Instruction**  
 ![Full gtkwave instruction](Task4/full_gtkwave_instruction.png)  
 
-</details>
+<details>
 ---
 
 ---

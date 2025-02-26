@@ -47,7 +47,7 @@ Steps to Compile a .c File on Your Machine:
  
 Compilation and execution complete.
  
-![2](
+![2](Task1/sum1ton_gcc.png
 )
 RISC-V Based Lab
 
@@ -75,7 +75,7 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 /main
 ```
 6. Use /main in the terminal to locate the main function in the assembly output.
-![4](https://github.com/user-attachments/assets/1f0acd4c-5ffa-43a4-97b6-fe6d89757fdf)
+![4](
 )
 
 7.Compile the C program for RISC-V architecture using ofast option:

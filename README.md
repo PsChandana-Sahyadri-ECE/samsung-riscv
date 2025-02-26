@@ -8,7 +8,7 @@ College: Sahyadri College of Engineering and Management
 
 Email ID: chandana250404@gmail.com
 
-GitHub Profile: PsChandana-Sahyadri-ECE
+GitHub Profile: PS Chandana-Sahyadri-ECE
 
 LinkedIN Profile: PS Chandana
 

@@ -18,213 +18,231 @@ LinkedIN Profile: PS Chandana
 ---
 
 <details>
-<summary> <b>Task 1:</b> The task involves  reviewing the C based lab video and the RISC-V architecture based lab video to gain a comprehensive understanding of both topics.Then the C code is compiled using two different compilers: the GCC compiler and the RISC-V compiler.</summary> 
+<summary> <b>Task 1:</b> Understanding C and RISC-V Compilation</summary> 
 <br>
-Task is to refer to C based and RISCV based lab videos and execute the task of compiling the C code using gcc and riscv compiler.
 
-**C Language based LAB**
+This task involves reviewing *C-based* and *RISC-V-based* lab videos to understand the differences in compiling C programs using *GCC* and *RISC-V GCC compilers*.</summary>
 
-**C and RISC-V Based Labs**
+## *C Language-Based Lab*  
 
-This repository demonstrates the processes involved in compiling C programs and generating assembly code using both a standard GCC compiler and a RISC-V GCC compiler. It includes comprehensive steps and explanations to guide users through each stage of the compilation and debugging workflow.
+This section demonstrates how to compile a *C program* on a standard *GCC compiler* and execute it.
 
-**C Language-Based Lab**
-
-Steps to Compile a .c File on Your Machine:
-
-1. Open the bash terminal and navigate to the directory where you want to create your file.
-2. Use the following command to create and edit a new .c file:
-   ```sh
+### *Steps to Compile and Run a C Program*
+1. Open the terminal and navigate to the desired directory.
+2. Create and edit a .c file using the following command:
+   sh
    leafpad sum1ton.c
 
+3. Compile and execute the program:
 
-**Steps to Compile a .c File on our Machine:**
- ```sh
- gcc sum1ton.c
- ./a.out
-```
+gcc sum1ton.c
+./a.out
 
- 
-Compilation and execution complete.
- 
+
+Compilation and execution are now complete.
+
 ![2](Task1/sum1ton_gcc.png
 )
 ![2](Task1/gcc_compile.png
 )
 
+
 RISC-V Based Lab
 
-**Steps to Compile Using RISC-V GCC Compiler:**
-1. Ensure the RISC-V GCC compiler is installed and accessible on your system.
-2. Verify the .c file contents using the cat command:
-   ```sh
-   cat sum1ton.c
+This section covers compiling a C program for the RISC-V architecture using the RISC-V GCC compiler.
+
+Steps to Compile Using RISC-V GCC Compiler
+
+1. Ensure the RISC-V GCC compiler is installed.
 
 
-3. Compile the C program for RISC-V architecture using 01 option:
- ```sh
-riscv64-unknown-elf-gcc -o1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
-```
-4. Disassemble the object file to view its assembly code using:
- ```sh
+2. Verify the .c file content using:
+
+cat sum1ton.c
+
+
+3. Compile the program with the -O1 optimization:
+
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+
+
+4. Disassemble the object file to view its assembly code:
+
 riscv64-unknown-elf-objdump -d sum1ton.o
-```
-5.minimize the assembly by using following code:
-```sh
-riscv64-unknown-elf-objdump -d sum1ton.o | less
-```
- a)we extract main function's assembly code by using:
-   ```sh
+
+
+5. Minimize the assembly output for easier reading:
+
+riscv64-unknown-elf-objdump -d sum1ton.o | less
+
+
+6. Extract the main function’s assembly code using:
+
 /main
-```
-6. Use /main in the terminal to locate the main function in the assembly output.
-![4](Task1/objdump_O1_mode.png
+
+
+7. Locate the main function in the assembly output.
+
+   ![4](Task1/objdump_O1_mode.png
 )
 
-7.Compile the C program for RISC-V architecture using ofast option:
-```sh
+
+Compiling with -Ofast Optimization
+
+1. Compile the program with aggressive optimization using -Ofast:
+
 riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
-```
-8.Disassemble the object file to view its assembly code using:
-```sh
+
+
+2. Disassemble the object file:
+
 riscv64-unknown-elf-objdump -d sum1ton.o
-```
-9.minimize the assembly by using following code:
-```sh
-riscv64-unknown-elf-objdump -d sum1ton.o | less
-```
- a)we extract main function's assembly code by using:
- ```sh
-  /main
-```
-10. Use /main in the terminal to locate the main function in the assembly output.
-![4](Task1/objdump_Ofast_mode.png)
+
+
+3. Minimize the assembly output:
+
+riscv64-unknown-elf-objdump -d sum1ton.o | less
+
+
+4. Extract the main function:
+
+/main
+
+
+5. Locate the main function in the assembly output.
+
+ ![4](Task1/objdump_Ofast_mode.png
 )
 
-Explanation of Key Commands and Options: 
-1. -mabi=lp64: Specifies the Application Binary Interface (ABI) for 64-bit integers, pointers, and long data types, suitable for 64-bit RISC-V architecture.
 
-2. -march=rv64i: Indicates the 64-bit RISC-V base integer instruction set architecture.
+Explanation of Key Commands and Options
 
-3. -O1: Enables basic optimization for better performance without significantly increasing compilation time.
-
-4. -Ofast: Optimize the code aggressively for the best possible speed.
-
-5. riscv64-unknown-elf-objdump: A tool for disassembling RISC-V binaries to examine the code structure and debug it effectively.
- 
-   </details>
-
----
-
-<details>
-<summary> <b>Task 2:</b> The task involves reviewing both C-based and RISC-V-based lab videos to understand the nuances of compiling C code for different architectures. Afterward, you are required to execute the process of compiling the C code using two distinct tools: the GCC compiler and the RISC-V compiler simulator. This will allow you to demonstrate your ability to work with both compilers, providing insights into how the C code is processed and converted into machine-readable code for each specific architecture.</summary> 
-<br>
-
-Task is to analyze the SPIKE simulation performance using RISC-V GCC with -O1 and -Ofast optimization levels.  
-
-*SPIKE Simulation and Compiler Optimization*
-
-This repository demonstrates how to compile a C program using RISC-V GCC, simulate it using SPIKE, and compare the performance of different optimization levels (-O1 and -Ofast). It includes detailed steps and explanations to ensure clarity.  
-
-**Steps to Complete the Task**  
-
-1.Write a Simple C Program  
-
-2.The following program calculates the addition of two numbers: 
-
-3.Compile Using RISC-V GCC
-
-4.Compile with -O1 Optimization.
-
-*Use the following command to compile the program with the -O1 optimization flag:*
-```sh
-riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o swift.o swift.c
-```
-**Disassemble Object Files to View Assembly Code(in new terminal)**
-*Generate Dump for -O1 Optimization*
-```sh
-riscv64-unknown-elf-objdump -d swift.o
-```
-*Minimize the assembly by using following code:*
-```sh
-riscv64-unknown-elf-objdump -d swift.o | less
-```
-![main program for O1 option](Task 2/task2_c_program.png)
-
-
-**Run SPIKE Simulation**
-*Run a compiled RISC-V program on the SPIKE simulator in non-debug mode.*
-```sh
-spike pk swift.o
-```
-*Invoke the debug mode of the SPIKE RISC-V simulator.*
-```sh
-spike -d pk swift.o
-```
-![compiling with O1 option](Task 2/task2_O1_objdump.png)
-
-
-**Compile with -Ofast Optimization.**
-*Use the following command to compile the program with the -Ofast optimization flag:*
-```sh
-riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o swift.o swift.c
-```
-**Disassemble Object Files to View Assembly Code(in new terminal)**
-*Generate Dump for -Ofast Optimization*
-```sh
-riscv64-unknown-elf-objdump -d swift.o
-```
-*Minimize the assembly by using following code:*
-```sh
-riscv64-unknown-elf-objdump -d swift.o | less
-```
-![main program for ofast option](Task 2/Ofast_objdump_optimization.png)
-
-
-**Run SPIKE Simulation**
-*Run -O1 Binary in SPIKE*
-```sh
-spike pk swift.o
-```
-*Invoke the debug mode of the SPIKE RISC-V simulator*
-```sh
-spike -d pk swift.o
-```
-![compiling with Ofast option]Task 2/task2_Ofast_objdump.png)
-
-
-**After(spike -d pk swift.o) Observe the Instructions:**
-
-1)After loading, SPIKE initializes and displays the Program Counter (PC) and Stack Pointer (SP).
-
-2)Press Enter repeatedly to step through the execution.
-
-3)Each press displays the next instruction executed by the program.
-
-4)The displayed instructions directly correspond to the C code of the main program, providing insights into the program's execution flow.
-**Explanation of Key Commands and Options:**
-
-1. spike:RISC-V simulator that runs RISC-V programs on a virtual machine.
-
-2. pk:Proxy kernel that acts as a minimal runtime environment for RISC-V programs, handling system calls like I/O and memory management.
-
-3. swift.o:The compiled RISC-V binary of your program (created using a RISC-V GCC compiler).
-
-4. -d (for debugging):Debugging mode in SPIKE, allows stepping through the instructions and inspecting the program's behavior.
-
-5. riscv64-unknown-elf-gcc:RISC-V GCC compiler used to compile the C program into a RISC-V object file (.o).
-
-6. -O1, -Ofast:Compiler optimization flags:
-      a.-O1: Basic optimizations for performance.
-      b.-Ofast: Aggressive optimizations for maximum speed.
-
-7. riscv64-unknown-elf-objdump:Disassembles RISC-V binaries to examine assembly code.
-
-These tools together enable compiling, running, and debugging RISC-V programs on a simulated environment.
+This concludes Task 1, demonstrating C and RISC-V compilation workflows.
 
 </details>
+---
+
 
 ---
+<details>
+<summary> <b># Task 2: RISC-V SPIKE Simulation and Compiler Optimization </b>Task Overview</summary> 
+<br>
+
+This task involves compiling a **C program** using the **RISC-V GCC compiler**, simulating it in **SPIKE**, and comparing the performance of different optimization levels (`-O1` and `-Ofast`).  
+
+The goal is to understand how **compiler optimizations** affect the **execution and instruction set** in the SPIKE RISC-V simulator.  
+
+
+---
+
+Steps to Complete the Task
+
+### **1. Write a Simple C Program**  
+
+The following program calculates the addition of two numbers:  
+
+![Simple C Program](Task2/_c_program.png)
+
+
+---
+
+### **2. Compile Using RISC-V GCC**
+
+#### **Compile with -O1 Optimization**  
+
+Use the following command to compile the program with the **-O1** optimization flag:  
+sh
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o swift.o swift.c
+
+
+#### **Disassemble Object Files to View Assembly Code**  
+
+Generate Dump for **-O1** Optimization:  
+sh
+riscv64-unknown-elf-objdump -d swift.o
+
+Minimize the assembly output using the following command:
+
+riscv64-unknown-elf-objdump -d swift.o | less
+
+![O1_objdump](Task2/task2_O1_objdump.png)
+
+
+### **3. Run SPIKE Simulation**
+
+Run a compiled **RISC-V program** on the SPIKE simulator in non-debug mode:  
+sh
+spike pk swift.o
+
+Invoke the debug mode of the SPIKE RISC-V simulator:
+
+spike -d pk swift.o
+
+![O1_objdump](Task2/O1_objdump_optimization.png)
+
+
+### **4. Compile with -Ofast Optimization**
+
+Use the following command to compile the program with the **-Ofast** optimization flag:  
+sh
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o swift.o swift.c
+
+
+#### **Disassemble Object Files to View Assembly Code**  
+
+Generate Dump for **-Ofast** Optimization:  
+sh
+riscv64-unknown-elf-objdump -d swift.o
+
+Minimize the assembly output using the following command:
+
+riscv64-unknown-elf-objdump -d swift.o | less
+
+![Ofast_objdump](Task2/Ofast_objdump.png)
+
+### **5. Run SPIKE Simulation for -Ofast Optimization**
+
+Run the **-Ofast binary** in SPIKE:  
+sh
+spike pk swift.o
+
+Invoke the debug mode of the SPIKE RISC-V simulator:
+
+spike -d pk swift.o
+
+![Ofast_objdump](Task2/Ofast_objdump_optimization.png)
+
+## **Observing Instructions in SPIKE (`spike -d pk swift.o`)**  
+
+1. After loading, **SPIKE initializes** and displays the **Program Counter (PC)** and **Stack Pointer (SP)**.  
+
+2. Press **Enter** repeatedly to step through the execution.  
+
+3. Each press displays the **next instruction executed** by the program.  
+
+4. The displayed instructions **directly correspond to the C code** of the main program, providing insights into the program's execution flow.
+
+
+---
+
+## **Explanation of Key Commands and Options**  
+
+| Command | Description |
+|---------|------------|
+| `spike` | RISC-V simulator that runs RISC-V programs on a virtual machine. |
+| `pk` | Proxy kernel that acts as a minimal runtime environment for RISC-V programs, handling system calls like I/O and memory management. |
+| `swift.o` | The compiled RISC-V binary of your program (created using a RISC-V GCC compiler). |
+| `-d` (debugging mode) | Debugging mode in SPIKE, allows stepping through the instructions and inspecting the program's behavior. |
+| `riscv64-unknown-elf-gcc` | RISC-V GCC compiler used to compile the C program into a RISC-V object file (.o). |
+| `-O1` | Basic optimizations for performance. |
+| `-Ofast` | Aggressive optimizations for maximum speed. |
+| `riscv64-unknown-elf-objdump` | Disassembles RISC-V binaries to examine assembly code. |
+
+These tools together enable compiling, running, and debugging **RISC-V programs** on a simulated environment.
+
+
+---
+
 
 ---
 <details>
@@ -593,4 +611,89 @@ J-type (Jump-type) instructions implement jump operations, often used for loops.
 
 This repository contains a list of 15 unique RISC-V instructions extracted from the assembly code along with their corresponding 32-bit instruction codes. These instructions cover different instruction formats, such as **U-type**, **I-type**, **J-type**, **B-type**, and **R-type**.
 
+</details>
 
+---
+<details>
+<summary> <b>Task 4:</b>This task involves simulating the RISC-V Core using the provided Verilog netlist and testbench. You will set up a simulation environment using tools like Icarus Verilog and GTKWave, run the simulation to verify the functional correctness of the core, and analyze output signals. Waveform snapshots of the executed instructions must be captured and uploaded to your GitHub repository along with a brief description, demonstrating your understanding of RISC-V functional simulation and verification.</summary> 
+<br>
+
+## 2. BLOCK DIAGRAM OF RISC-V RV32I
+![image](https://user-images.githubusercontent.com/110079631/181293948-beb8622c-7696-4b06-b6c9-eeab9b8ab9d3.png)
+
+## 3. INSTRUCTION SET OF RISC-V RV32I
+![image](https://user-images.githubusercontent.com/110079631/181298133-60269bc2-01da-4b5c-8b42-69057b8dc15c.png)
+
+# RISC-V Core Functional Simulation 
+## 4. FUNCTIONAL SIMULATION
+
+### 4.1 About iverilog and gtkwave
+- Icarus Verilog is an implementation of the Verilog hardware description language.
+- GTKWave is a fully featured GTK+ v1. 2 based wave viewer for Unix and Win32 which reads Ver Structural Verilog Compiler generated AET files as well as standard Verilog VCD/EVCD files and allows their viewing.
+
+### 4.2 Installing iverilog and gtkwave
+
+- **For Ubuntu**
+
+ Open your terminal and type the following to install iverilog and GTKWave
+ ```
+ $   sudo apt get update
+ $   sudo apt get install iverilog gtkwave
+ ```
+ ![image](Task 4/installation_iverilog.png)
+ ![image](Task 4/installation_gtkwave.png)
+
+- **To clone the repository and download the netlist files for simulation , enter the following commands in your terminal.**
+
+ ```
+ $ git clone https://github.com/vinayrayapati/iiitb_rv32i
+ $ cd iiitb_rv32i
+ ```
+- **To simulate and run the verilog code , enter the following commands in your terminal.**
+
+```
+$ iverilog -o iiitb_rv32i iiitb_rv32i.v iiitb_rv32i_tb.v
+$ ./iiitb_rv32i
+```
+- **To see the output waveform in gtkwave, enter the following commands in your terminal.**
+
+`$ gtkwave iiitb_rv32i.vcd`
+
+### 4.3 The output waveform
+
+ The output waveform showing the instructions performed in a 5-stage pipelined architecture.
+
+## **Analyzing the Output Waveform of Various Instructions**
+
+### **Instruction 1: `ADD R6, R2, R1`**  
+![ADD](Task4/add.png)
+
+### **Instruction 2: `SUB R7, R1, R2`**  
+![SUB](Task4/sub.png)
+
+### **Instruction 3: `AND R8, R1, R3`**  
+![AND](Task4/and.png)
+
+### **Instruction 4: `OR R9, R2, R5`**  
+![OR](Task4/or.png)
+
+### **Instruction 5: `XOR R10, R1, R4`**  
+![XOR](Task4/xor.png)
+
+### **Instruction 6: `SLT R1, R2, R4`**  
+![SLT](Task4/slt.png)
+
+### **Instruction 7: `ADDI R12, R4, 5`**  
+![ADDI](Task4/addi.png)
+
+
+---
+
+### **Full `gtkwave` Instruction**  
+![Full gtkwave instruction](Task4/full_gtkwave_instruction.png)  
+
+</details>
+
+---
+
+---

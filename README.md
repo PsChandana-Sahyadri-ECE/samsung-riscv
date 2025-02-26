@@ -18,7 +18,7 @@ LinkedIN Profile: PS Chandana
 ---
 
 <details>
-<summary> <b>Task 1:</b> The task involves  reviewing the C based lab video and the RISC-V architecture based lab video to gain a comprehensive understanding of both topics. Afterward, you are required to compile C code using two different compilers: the GCC compiler and the RISC-V compiler. This exercise will showcase your grasp of the compilation process, where you will observe and compare how each compiler translates the C code into machine code, highlighting the differences and specificities of the compilation process for different architectures.</summary> 
+<summary> <b>Task 1:</b> The task involves  reviewing the C based lab video and the RISC-V architecture based lab video to gain a comprehensive understanding of both topics.Then the C code is compiled using two different compilers: the GCC compiler and the RISC-V compiler.</summary> 
 <br>
 Task is to refer to C based and RISCV based lab videos and execute the task of compiling the C code using gcc and riscv compiler.
 
@@ -49,6 +49,9 @@ Compilation and execution complete.
  
 ![2](Task1/sum1ton_gcc.png
 )
+![2](Task1/gcc_compile.png
+)
+
 RISC-V Based Lab
 
 **Steps to Compile Using RISC-V GCC Compiler:**
@@ -75,7 +78,7 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 /main
 ```
 6. Use /main in the terminal to locate the main function in the assembly output.
-![4](
+![4](Task1/objdump_O1_mode.png
 )
 
 7.Compile the C program for RISC-V architecture using ofast option:
@@ -95,7 +98,7 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
   /main
 ```
 10. Use /main in the terminal to locate the main function in the assembly output.
-![4](https://github.com/user-attachments/assets/a8cf86d0-0954-4ad8-a923-ffe519db5115)
+![4](Task1/objdump_Ofast_mode.png)
 )
 
 Explanation of Key Commands and Options: 
@@ -127,7 +130,7 @@ This repository demonstrates how to compile a C program using RISC-V GCC, simula
 
 1.Write a Simple C Program  
 
-2.The following program calculates the swaping of two numbers:  
+2.The following program calculates the addition of two numbers: 
 
 3.Compile Using RISC-V GCC
 
@@ -146,7 +149,7 @@ riscv64-unknown-elf-objdump -d swift.o
 ```sh
 riscv64-unknown-elf-objdump -d swift.o | less
 ```
-![main program for O1 option](https://github.com/user-attachments/assets/63c34a23-919a-4741-91f9-ab9e48a13e4a)
+![main program for O1 option](Task 2/task2_c_program.png)
 
 
 **Run SPIKE Simulation**
@@ -158,7 +161,7 @@ spike pk swift.o
 ```sh
 spike -d pk swift.o
 ```
-![compiling with O1 option](https://github.com/user-attachments/assets/257327e6-bb35-412f-92de-ce70c92736d0)
+![compiling with O1 option](Task 2/task2_O1_objdump.png)
 
 
 **Compile with -Ofast Optimization.**
@@ -175,7 +178,7 @@ riscv64-unknown-elf-objdump -d swift.o
 ```sh
 riscv64-unknown-elf-objdump -d swift.o | less
 ```
-![main program for ofast option](https://github.com/user-attachments/assets/f5df539d-7170-4158-bf1b-b19240672da2)
+![main program for ofast option](Task 2/Ofast_objdump_optimization.png)
 
 
 **Run SPIKE Simulation**
@@ -187,7 +190,7 @@ spike pk swift.o
 ```sh
 spike -d pk swift.o
 ```
-![compiling with Ofast option](https://github.com/user-attachments/assets/c67c0820-11ea-4aae-aa01-1edaae5b8e71)
+![compiling with Ofast option]Task 2/task2_Ofast_objdump.png)
 
 
 **After(spike -d pk swift.o) Observe the Instructions:**

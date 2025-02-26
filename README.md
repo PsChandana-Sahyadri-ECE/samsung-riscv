@@ -47,7 +47,7 @@ Steps to Compile a .c File on Your Machine:
  
 Compilation and execution complete.
  
-![2](https://github.com/user-attachments/assets/5363e456-21a1-498f-b360-5f5d66a58029)
+![2](
 )
 RISC-V Based Lab
 

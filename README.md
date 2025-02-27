@@ -744,7 +744,7 @@ $ ./iiitb_rv32i
 
 ---
 <details>
-<summary> <b>Task 6:</b>This project demonstrates a *smooth LED fading effect* using *Pulse Width Modulation (PWM)* on a *VSDSquadron Mini board. Four LEDs, connected to **GPIO pins PC3, PC4, PC5, and PC6, gradually transition in brightness, creating a visually appealing **wave-like pattern*. The microcontroller precisely controls the brightness using PWM, ensuring a seamless and smooth transition.</summary>
+<summary> <b>Task 6:</b>This project demonstrates a smooth LED fading effect using Pulse Width Modulation (PWM) on a VSDSquadron Mini board. Four LEDs, connected to GPIO pins PC3, PC4, PC5, and PC6, gradually transition in brightness, creating a visually appealing wave-like pattern. The microcontroller precisely controls the brightness using PWM, ensuring a seamless and smooth transition.</summary>
 
 ## Steps to Implement
 ### Hardware Implementation

@@ -8,8 +8,6 @@ College: Sahyadri College of Engineering and Management
 
 Email ID: chandana250404@gmail.com
 
-GitHub Profile: PS Chandana-Sahyadri-ECE
-
 LinkedIN Profile: PS Chandana
 
 
@@ -704,7 +702,7 @@ $ ./iiitb_rv32i
 
 ---
 <details>
-<summary> <b>Task 5:</b> This task involves implementating a project using VSDsquadron Mini board. LED Fading with PWM. This project demonstrates a **smooth LED fading effect** using **Pulse Width Modulation (PWM)** on a **VSDsquadron Mini Board**.</summary>
+<summary> <b>Task 5:</b> This task involves implementating a project using VSDsquadron Mini board. LED Fading with PWM. This project demonstrates a smooth LED fading effect using Pulse Width Modulation (PWM) on a VSDsquadron Mini Board.</summary>
 
 
 ## Components Required
@@ -728,7 +726,7 @@ $ ./iiitb_rv32i
 
 
 ## Circuit Diagram
-
+![image](Task%205/circuit_diagram.jpg)
 
 ## Working Mechanism
 1. **PWM Control:**
